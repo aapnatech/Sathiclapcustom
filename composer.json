@@ -1,5 +1,5 @@
 {
-    "name": "trexology/reviewrateable",
+    "name": "Sathiclapcustom/reviewrateable",
     "description": "Rating syetem for Laravel 5",
     "keywords": ["rating", "Ratable", "laravel", "ReviewRateable", "reviewable"],
     "license": "MIT",
@@ -16,13 +16,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Trexology\\ReviewRateable\\": "src/"
+            "Sathiclapcustom\\ReviewRateable\\": "src/"
         }
     },
     "extra": {
       "laravel": {
           "providers": [
-              "Trexology\\ReviewRateable\\ReviewRateableServiceProvider"
+              "Sathiclapcustom\\ReviewRateable\\ReviewRateableServiceProvider"
           ]
       }
     }
