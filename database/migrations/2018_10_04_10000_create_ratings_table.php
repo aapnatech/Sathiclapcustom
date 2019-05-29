@@ -8,14 +8,18 @@ class CreateRatingsTable extends Migration
     public function up()
     {
         Schema::create('ratings', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
-            $table->double('rating');
+            $table->bigIncrements('id');
+            $table->integer('rating');
+            $table->integer('booking_service_item_id');
+            $table->integer('service_item_id');
+            $table->enum('recommend', ['Yes', 'No']);
             $table->string('title');
-            $table->text('body');
+            $table->string('body');
+            $table->boolean('approved')->default(0);
             $table->morphs('reviewrateable');
             $table->morphs('author');
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

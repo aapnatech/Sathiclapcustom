@@ -1,3 +1,7 @@
+[![Latest Stable Version](https://poser.pugx.org/trexology/reviewrateable/v/stable)](https://packagist.org/packages/trexology/reviewrateable)
+[![Total Downloads](https://poser.pugx.org/trexology/reviewrateable/downloads)](https://packagist.org/packages/trexology/reviewrateable)
+[![Latest Unstable Version](https://poser.pugx.org/trexology/reviewrateable/v/unstable)](https://packagist.org/packages/trexology/reviewrateable) [![License](https://poser.pugx.org/trexology/reviewrateable/license)](https://packagist.org/packages/trexology/reviewrateable)
+
 # Laravel ReviewRateable
 ReviewRateable system for laravel 5.*
 
@@ -13,13 +17,13 @@ And then include the service provider within `app/config/app.php`. (Skip this st
 
 ```php
 'providers' => [
-    Sathiclapcustom\ReviewRateable\ReviewRateableServiceProvider::class
+    Trexology\ReviewRateable\ReviewRateableServiceProvider::class
 ];
 ```
 
 At last you need to publish and run the migration.
 ```
-php artisan vendor:publish --provider="Sathiclapcustom\ReviewRateable\ReviewRateableServiceProvider" && php artisan migrate
+php artisan vendor:publish --provider="Trexology\ReviewRateable\ReviewRateableServiceProvider" && php artisan migrate
 ```
 
 -----
@@ -30,8 +34,8 @@ php artisan vendor:publish --provider="Sathiclapcustom\ReviewRateable\ReviewRate
 
 namespace App;
 
-use Sathiclapcustom\ReviewRateable\Contracts\ReviewRateable;
-use Sathiclapcustom\ReviewRateable\Traits\ReviewRateable as ReviewRateableTrait;
+use Trexology\ReviewRateable\Contracts\ReviewRateable;
+use Trexology\ReviewRateable\Traits\ReviewRateable as ReviewRateableTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model implements ReviewRateable
@@ -48,11 +52,7 @@ $post = Post::first();
 $rating = $post->rating([
     'title' => 'Some title',
     'body' => 'Some body',
-    'booking_service_item_id'=>1,
-    'service_item_id'=>1,
     'rating' => 5,
-    'recommend' => 'Yes',
-    'approved' => true, 
 ], $user);
 
 dd($rating);
