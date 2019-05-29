@@ -48,7 +48,11 @@ $post = Post::first();
 $rating = $post->rating([
     'title' => 'Some title',
     'body' => 'Some body',
+    'booking_service_item_id'=>1,
+    'service_item_id'=>1,
     'rating' => 5,
+    'recommend' => 'Yes',
+    'approved' => true, 
 ], $user);
 
 dd($rating);
