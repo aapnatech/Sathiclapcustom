@@ -1,6 +1,3 @@
-[![Latest Stable Version](https://poser.pugx.org/trexology/reviewrateable/v/stable)](https://packagist.org/packages/trexology/reviewrateable)
-[![Total Downloads](https://poser.pugx.org/trexology/reviewrateable/downloads)](https://packagist.org/packages/trexology/reviewrateable)
-[![Latest Unstable Version](https://poser.pugx.org/trexology/reviewrateable/v/unstable)](https://packagist.org/packages/trexology/reviewrateable) [![License](https://poser.pugx.org/trexology/reviewrateable/license)](https://packagist.org/packages/trexology/reviewrateable)
 
 # Laravel ReviewRateable
 ReviewRateable system for laravel 5.*
@@ -17,7 +14,7 @@ And then include the service provider within `app/config/app.php`. (Skip this st
 
 ```php
 'providers' => [
-    Trexology\ReviewRateable\ReviewRateableServiceProvider::class
+    Sathiclapcustom\ReviewRateable\ReviewRateableServiceProvider::class
 ];
 ```
 
@@ -34,8 +31,8 @@ php artisan vendor:publish --provider="Trexology\ReviewRateable\ReviewRateableSe
 
 namespace App;
 
-use Trexology\ReviewRateable\Contracts\ReviewRateable;
-use Trexology\ReviewRateable\Traits\ReviewRateable as ReviewRateableTrait;
+use Sathiclapcustom\ReviewRateable\Contracts\ReviewRateable;
+use Sathiclapcustom\ReviewRateable\Traits\ReviewRateable as ReviewRateableTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model implements ReviewRateable
@@ -47,11 +44,12 @@ class Post extends Model implements ReviewRateable
 ### Create a rating
 ```php
 $user = User::first();
-$post = Post::first();
 
-$rating = $post->rating([
+$rating = $user->rating([
     'title' => 'Some title',
     'body' => 'Some body',
+    'booking_service_item_id'=>1,
+    'service_item_id'=>1,
     'rating' => 5,
 ], $user);
 
